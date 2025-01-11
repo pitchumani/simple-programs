@@ -18,7 +18,7 @@ $(OBJDIR):
 TESTS := movebytes-test
 
 movebytes-test: $(OBJDIR)/move-bytes.o move-bytes-test.cpp
-	$(CXX) -o $(OBJDIR)/$@ $^ $(GTFLAGS)
+	$(CXX) -o $(OBJDIR)/$@ $^ $(GTFLAGS) -Wno-write-strings
 	./$(OBJDIR)/$@
 
 test: $(TESTS)
