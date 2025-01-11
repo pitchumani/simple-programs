@@ -31,7 +31,7 @@ TEST(moveBytesTest, Test4) {
     char arr1[] = "test string";
     char arr2[] = "hello world";
     moveBytes(arr2, arr1, 5);
-    EXPECT_TRUE(strcmp(arr1, "hellostring") == 0);
+    EXPECT_TRUE(strcmp(arr1, "hellostring") == 0) << "actual: " << arr1;
 }
 
 TEST(moveBytesTest, Test5) {
@@ -50,7 +50,7 @@ TEST(moveBytesTest, Test6) {
 TEST(moveBytesTest, Test7) {
     char arr1[] = "0123456789";
     moveBytes(arr1, arr1+4, 6);
-    EXPECT_TRUE(strcmp(arr1, "01230123456") == 0) << "actual: " << arr1;
+    EXPECT_TRUE(strcmp(arr1+4, "012345") == 0) << "actual: " << arr1;
 }
 
 int main(int argc, char **argv) {
