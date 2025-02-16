@@ -14,3 +14,16 @@ To build programs and run the unit tests:
 $ cd cpp
 $ make test
 ```
+
+## Go programs
+Directory `go` has programs written in the Go programming language.
+
+### Fetch NAV
+[MFAPI.in](https://mfapi.in) provides India's mutual fund api.
+Program `mfnav.go` fetches the latest NAV for a Parag Parikh Long Term Equity Fund - Direct Growth.
+The sample output of the program:
+```
+Fetch mutual fund's nav data
+        Date |  Scheme Code |        NAV
+  14-02-2025 |       122639 |   85.81100
+```
