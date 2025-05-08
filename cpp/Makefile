@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := all
 
 CXX=g++
 FLAGS=-g3
@@ -36,8 +37,11 @@ build/mthread1: mthread-01.cpp
 
 mthread1: $(OBJDIR)/mthread1
 
-programs: mthread1
-	./$(OBJDIR)/$^
+elfsummary: elfsummary.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^
+	./$(OBJDIR)/$@ $(OBJDIR)/mthread1
+
+programs: mthread1 elfsummary
 
 all: $(OBJS) test programs
 
