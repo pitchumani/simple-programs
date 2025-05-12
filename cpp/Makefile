@@ -31,13 +31,17 @@ anagram-test: $(OBJDIR)/anagram.o anagram-test.cpp
 
 test: $(TESTS)
 
-build/mthread1: mthread-01.cpp
-	$(CXX) -o $(OBJDIR)/mthread1 mthread-01.cpp
+mthread1: mthread-01.cpp
+	echo "Build and run mthread-01.cpp"
+	$(CXX) -o $(OBJDIR)/$@ $^
+	./$(OBJDIR)/$@
 
-mthread1: $(OBJDIR)/mthread1
+nw1: network-01.cpp
+	echo "Build and run network-01.cpp"
+	$(CXX) -o $(OBJDIR)/$@ $^
+	./$(OBJDIR)/$@
 
-programs: mthread1
-	./$(OBJDIR)/$^
+programs: $(OBJDIR) mthread1 nw1
 
 all: $(OBJS) test programs
 
