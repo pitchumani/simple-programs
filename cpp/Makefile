@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := all
 
 CXX=g++
 FLAGS=-g3
@@ -46,7 +47,11 @@ echoserver: echo-server.cpp echo-client.cpp
 	$(CXX) -o $(OBJDIR)/echo-client echo-client.cpp
 	echo "run echo-server and echo-client in separate terminal"
 
-programs: $(OBJDIR) mthread1 nw1 echoserver
+elfsummary: elfsummary.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^
+	./$(OBJDIR)/$@ ./$(OBJDIR)/nw1
+
+programs: $(OBJDIR) mthread1 nw1 echoserver elfsummary
 
 all: $(OBJS) test programs
 
