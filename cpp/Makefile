@@ -49,7 +49,7 @@ echoserver: echo-server.cpp echo-client.cpp
 
 elfsummary: elfsummary.cpp
 	$(CXX) -o $(OBJDIR)/$@ $^
-	./$(OBJDIR)/$@
+	./$(OBJDIR)/$@ ./$(OBJDIR)/nw1
 
 programs: $(OBJDIR) mthread1 nw1 echoserver elfsummary
 
