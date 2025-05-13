@@ -54,6 +54,8 @@ void runClient() {
         std::cin >> user_message;
         if (user_message == std::string("quit"))
             break;
+        send(client_socket, user_message.c_str(), user_message.length(), 0);
+        std::cout << "Client: sent message: " << user_message << std::endl;
     }
 
     // Close the socket

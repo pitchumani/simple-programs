@@ -44,8 +44,7 @@ nw1: network-01.cpp
 echoserver: echo-server.cpp echo-client.cpp
 	$(CXX) -o $(OBJDIR)/echo-server echo-server.cpp
 	$(CXX) -o $(OBJDIR)/echo-client echo-client.cpp
-	./$(OBJDIR)/echo-server&
-	./$(OBJDIR)/echo-client&
+	echo "run echo-server and echo-client in separate terminal"
 
 programs: $(OBJDIR) mthread1 nw1 echoserver
 
