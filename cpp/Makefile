@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := all
 
 CXX=g++
-FLAGS=-g3
+FLAGS=-g3 -std=c++17
 GTFLAGS=-lgtest
 
 OBJDIR := build
@@ -20,14 +20,19 @@ $(OBJDIR):
 	mkdir $(OBJDIR)
 
 TESTS := movebytes-test \
-	anagram-test
+	anagram-test \
+	substr-test
 
 movebytes-test: $(OBJDIR)/move-bytes.o move-bytes-test.cpp
-	$(CXX) -o $(OBJDIR)/$@ $^ $(GTFLAGS) -Wno-write-strings
+	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -Wno-write-strings
 	./$(OBJDIR)/$@
 
 anagram-test: $(OBJDIR)/anagram.o anagram-test.cpp
-	$(CXX) -o $(OBJDIR)/$@ $^ $(GTFLAGS) -Wno-write-strings
+	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -Wno-write-strings
+	./$(OBJDIR)/$@
+
+substr-test: substr.cpp substr-test.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -D __UNITTEST__ -Wno-write-strings
 	./$(OBJDIR)/$@
 
 test: $(TESTS)
@@ -63,6 +68,6 @@ all: $(OBJS) test programs
 .PHONY: clean
 
 clean:
-	rm -f $(OBJS) build/*
+	rm -r -f $(OBJS) build/*
 	rm -r -f build
 
