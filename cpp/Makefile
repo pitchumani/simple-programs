@@ -51,7 +51,12 @@ elfsummary: elfsummary.cpp
 	$(CXX) -o $(OBJDIR)/$@ $^
 	./$(OBJDIR)/$@ ./$(OBJDIR)/nw1
 
-programs: $(OBJDIR) mthread1 nw1 echoserver elfsummary
+substr: substr.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^
+	echo "substr \"hello world\" should return 6"
+	./$(OBJDIR)/$@ "hello world"
+
+programs: $(OBJDIR) mthread1 nw1 echoserver elfsummary substr
 
 all: $(OBJS) test programs
 
