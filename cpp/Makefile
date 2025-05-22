@@ -61,6 +61,10 @@ substr: substr.cpp
 	echo "substr \"hello world\" should return 6"
 	./$(OBJDIR)/$@ "hello world"
 
+palindrome: palindrome.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^
+	./$(OBJDIR)/$@ "racecar"
+
 programs: $(OBJDIR) mthread1 nw1 echoserver elfsummary substr
 
 all: $(OBJS) test programs
