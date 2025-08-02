@@ -35,6 +35,10 @@ substr-test: substr.cpp substr-test.cpp
 	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -D __UNITTEST__ -Wno-write-strings
 	./$(OBJDIR)/$@
 
+smartptr-test: smartptr.cpp smartptr_test.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -D __UNITTEST__ -Wno-write-strings
+	./$(OBJDIR)/$@
+
 test: $(TESTS)
 
 mthread1: mthread-01.cpp
