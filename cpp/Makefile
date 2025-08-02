@@ -21,6 +21,7 @@ $(OBJDIR):
 
 TESTS := movebytes-test \
 	anagram-test \
+	smartptr-test \
 	substr-test
 
 movebytes-test: $(OBJDIR)/move-bytes.o move-bytes-test.cpp
