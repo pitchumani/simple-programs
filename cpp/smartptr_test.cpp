@@ -27,10 +27,3 @@ TEST(sharedptrTest, test1) {
     EXPECT_EQ(count, 1) << "actual: " << count;
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    std::cout << "Running longestSubstring tests" << std::endl;
-    int retval = RUN_ALL_TESTS();
-    return retval;
-}
-
