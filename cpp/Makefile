@@ -21,6 +21,7 @@ $(OBJDIR):
 
 TESTS := movebytes-test \
 	anagram-test \
+	smartptr-test \
 	substr-test
 
 movebytes-test: $(OBJDIR)/move-bytes.o move-bytes-test.cpp
@@ -32,6 +33,10 @@ anagram-test: $(OBJDIR)/anagram.o anagram-test.cpp
 	./$(OBJDIR)/$@
 
 substr-test: substr.cpp substr-test.cpp
+	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -D __UNITTEST__ -Wno-write-strings
+	./$(OBJDIR)/$@
+
+smartptr-test: smartptr.cpp smartptr_test.cpp
 	$(CXX) -o $(OBJDIR)/$@ $^ $(FLAGS) $(GTFLAGS) -D __UNITTEST__ -Wno-write-strings
 	./$(OBJDIR)/$@
 
